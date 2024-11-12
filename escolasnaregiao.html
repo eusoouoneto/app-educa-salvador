@@ -60,7 +60,7 @@
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        // Exemplo de escolas com coordenadas e dados de acessibilidade
+        
         const schools = [
             { name: "Escola Municipal Maurício José Barbosa", lat: -13.000259, lon: -38.511977, accessibility: true },
             { name: "Escola Plic Ploc", lat: -12.991334, lon: -38.517610, accessibility: false },
@@ -76,12 +76,12 @@
             { name: "Centro de Apoio Pedagógico ao Deficiente Visual", lat: -12.975261424938479, lon:  -38.50479684520478 , accessibility: true },
         ]; 
 
-        // Adicionando marcadores de escola no mapa
+       
         schools.forEach((school, index) => {
             const marcador = L.marker([school.lat, school.lon]).addTo(map);
             if (index === 0) {
                 marcador.bindPopup(
-                    `<a href="avalicaoescola.html"><b>${school.name}</b></a><br>Acessibilidade: ${school.accessibility? 'Sim' : 'Não'} 
+                    `<a href="https://comunicacao.salvador.ba.gov.br/entrega-da-escola-municipal-mauricio-jose-barbosa/" target="_blank"><b>${school.name}</b></a><br>Acessibilidade: ${school.accessibility? 'Sim' : 'Não'} 
                 `);
                 } else {
                     marcador.bindPopup(`<b>${school.name}</b><br>Acessibilidade:${school.acessibilidade ? 'Sim' : 'Não'}`);
