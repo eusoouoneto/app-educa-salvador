@@ -1,0 +1,184 @@
+/* Reset e Configurações Básicas */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #fcfeff, #89c4f4);
+  color: #333;
+}
+
+/* Cabeçalho */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  color: rgb(0, 5, 10);
+}
+
+h1 {
+  font-size: 1.8rem;
+}
+
+/* Navegação */
+nav {
+  background-color: #618ce2;
+  padding: 10px 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  border-radius: 20px;
+  transition: background-color 0.4s;
+}
+
+nav ul li a:hover {
+  background-color: #69bef0;
+}
+
+/* Conteúdo Principal */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Opção de Menu */
+.menu-option {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: box-shadow 0.4s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu-option:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.menu-option img {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+}
+
+.menu-option span {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Seções de Leis */
+.teste2 {
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Listas de Leis */
+h1 {
+  margin-bottom: 15px;
+  color: #4a90e2;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  margin: 15px 0;
+}
+
+li a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+li a:hover {
+  color: #0056b3;
+}
+
+/* Rodapé */
+footer {
+  padding: 15px;
+  background-color: #4a90e2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #4a90e2;
+  background-color: white;
+  border: 2px solid #4a90e2;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+footer button:hover {
+  background-color: #4a90e2;
+  color: white;
+}
+
+/* Mapa (Ajuste para o container de mapa) */
+.map {
+  height: 500px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .menu-option {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .menu-option img {
+    margin-bottom: 10px;
+  }
+}
+

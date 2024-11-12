@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inclui Salvador</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        /* Estilo do mapa */
+        #map {
+            height: 500px;
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0,0.1); 
+        }
+    </style>
+</head>
+<body>
+    <div class="logo"><img src="./inclui_salvador.png" alt="Logo Inclui Salvador" class="logo" width="300px"> </div>
+
+    <nav> <div>
+            <ul>
+            <li>
+                   <a href="index.html"> Home </a>
+                </li>
+                <li>
+                    <a href="avaliacaoescola.html"> Avaliação de Escolas </a>
+                </li>
+                <li>
+                    <a href="consultarleis.html"> Consultar Leis </a>
+                </li>
+                <li>
+                    <a href="fiscalizacao.html"> Solicitar Fiscalização de Órgaos Públicos </a>
+                </li>
+            </ul>
+            </nav>
+        </div>       
+    <main>
+
+<div class="menu-option" onclick="escolasNaRegiao()">
+    <img src="https://cdn-icons-png.flaticon.com/512/446/446075.png" alt="Icone de localização">
+    <span>Escolas na Região</span>
+</div></main>
+
+<div id="map"></div>
+
+    <!-- Script para a biblioteca Leaflet -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- Script para agrupamento de marcadores -->
+    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+       
+    
+    <script>
+        // Criando o mapa e centralizando na coordenada especificada
+        const map = L.map('map').setView([-12.9704, -38.5124], 13);
+
+        // Adicionando uma camada de mapa (tiles)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Exemplo de escolas com coordenadas e dados de acessibilidade
+        const schools = [
+            { name: "Escola Municipal Maurício José Barbosa", lat: -13.000259, lon: -38.511977, accessibility: true },
+            { name: "Escola Plic Ploc", lat: -12.991334, lon: -38.517610, accessibility: false },
+            { name: "Escolinha Maria Felipa", lat: -12.989553, lon: -38.515711, accessibility: false },
+            { name: "Escola Nosso Mundo", lat: -12.994811, lon: -38.517570, accessibility: false },
+            { name: "Colégio Central da Bahia", lat: -12.981025, lon: -38.511297, accessibility: false },
+            { name: "Centro Educacional Edgard Santos", lat: -12.993672, lon: -38.511606, accessibility: false },
+            { name: "Colégio Estadual Senhor Do Bonfim", lat: -12.985360999376748, lon: -38.51246773422933, accessibility: false },
+            { name: "Colégio Estadual Mario Augusto Teixeira De Freitas", lat: -12.980025274551721, lon: -38.510130938457074, accessibility: false },
+            { name: "Colégio Salesiano do Salvador", lat: -12.972981686459482, lon: -38.5021854171324, accessibility: false },
+            { name: "Colégio Antônio Vieira", lat: -12.992365818353484, lon:  -38.51521163084074, accessibility: false },
+            { name: "Colégio Assunção", lat: -12.984389778564406, lon:  -38.51236852019352, accessibility: false },
+            { name: "Centro de Apoio Pedagógico ao Deficiente Visual", lat: -12.975261424938479, lon:  -38.50479684520478 , accessibility: true },
+        ]; 
+
+        // Adicionando marcadores de escola no mapa
+        schools.forEach((school, index) => {
+            const marcador = L.marker([school.lat, school.lon]).addTo(map);
+            if (index === 0) {
+                marcador.bindPopup(
+                    `<a href="avalicaoescola.html"><b>${school.name}</b></a><br>Acessibilidade: ${school.accessibility? 'Sim' : 'Não'} 
+                `);
+                } else {
+                    marcador.bindPopup(`<b>${school.name}</b><br>Acessibilidade:${school.acessibilidade ? 'Sim' : 'Não'}`);
+                    }
+                });
+
+    </script>
+<br>
+<br>
+<footer>
+    <button onclick="contato()">Contato</button>
+</footer>
